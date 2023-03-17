@@ -1,0 +1,109 @@
+@import '../../styles/_variables'
+
+.Nav
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    z-index: 9999
+
+    @include media($breakpoint: $large)
+        .NavMobile
+            display: none
+        .NavDesktop
+            display: flex
+
+    @include media($breakpoint: $sm)
+        .NavDesktop
+            display: none
+        .NavMobile
+            display: flex
+
+    &Desktop
+        display: flex
+        align-items: center
+        justify-content: center
+        width: 100%
+        background-color: $secondary
+        position: relative
+        .logoSpace
+            width: 319px
+            display: flex
+            align-items: center
+            justify-content: center
+        .logo
+            position: absolute
+            padding-top: 10px
+            top: 0
+            display: flex
+            align-items: center
+            justify-content: center
+            &::after
+                content: ''
+                display: inline-block
+                width: 319px
+                height: 319px
+                background-color: $secondary
+                position: absolute
+                border-radius: 50%
+                z-index: -1
+                top: -139px
+            img
+                width: 145px
+
+        a
+            font-family: $heading-font
+            color: $black
+            text-decoration: none
+            font-size: 24px
+            min-width: 100px
+            padding: 20px 50px
+            text-align: center
+            &:first-child
+                padding-left: 0
+                text-align: left
+            &:last-child
+                padding-right: 0
+                text-align: right
+            &:hover
+                text-decoration: underline
+    &Mobile
+        display: flex
+        flex-direction: column
+        &.show
+            .NavMobile_Links
+                display: flex
+        &.hide
+            .NavMobile_Links
+                display: none
+        &_Navbar
+            padding: 10px
+            height: 56px
+            display: flex
+            flex-direction: row
+            align-items: center
+            justify-content: center
+            background: $secondary
+            position: relative
+            .logo
+                height: 28px
+                width: 100px
+            button
+                background: transparent
+                border: 0
+                position: absolute
+                right: 15px
+                top: calc(50% - 8.5px)
+        &_Links
+            display: flex
+            flex-direction: column
+            align-items: center
+            background: $secondary
+            padding: 10px 10px 40px 10px
+            a
+                font-size: 32px
+                color: $black
+                padding: 20px 10px
+                text-decoration: none
+                font-family: $heading-font
+            // display: none
